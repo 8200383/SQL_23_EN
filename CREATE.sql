@@ -20,7 +20,7 @@ CREATE TABLE [dbo].[Customer] (
 	Email VARCHAR(50) NOT NULL,
 	NIF VARCHAR(9) NOT NULL,
 	CONSTRAINT PK_Customers_CustomerID PRIMARY KEY CLUSTERED (CustomerID),
-	CONSTRAINT CK_Customers_Gender CHECK (Gender IN ('Male', 'Female', 'Other')),
+	CONSTRAINT CK_Customers_Gender CHECK (Gender IN ('Men', 'Women', 'Other')),
 	CONSTRAINT CK_Customers_Email CHECK (Email LIKE '%@%.%'),
 	CONSTRAINT AK_Customers_Email UNIQUE(Email)   
 )
@@ -31,7 +31,7 @@ CREATE TABLE [dbo].[Collection] (
 	Gender VARCHAR(10) NOT NULL,
 	ProductCount INT,
 	CONSTRAINT PK_Collections_CollectionID PRIMARY KEY CLUSTERED (CollectionID),
-	CONSTRAINT CK_Collections_Gender CHECK (Gender IN ('Male', 'Female', 'Other'))
+	CONSTRAINT CK_Collections_Gender CHECK (Gender IN ('Men', 'Women', 'Other'))
 )
 
 CREATE TABLE [dbo].[Product] (
