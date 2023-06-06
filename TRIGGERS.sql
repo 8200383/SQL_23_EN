@@ -1,10 +1,19 @@
 CREATE TRIGGER UPDATE_PRODUCT_COUNT_ON_COLLECTION_WHEN_INSERT_PRODUCT
 ON Product
-AFTER INSERT
+AFTER INSERT, DELETE
 AS
 BEGIN
     UPDATE Collection
-    SET Collection.ProductCount = Collection.ProductCount + 1
-    FROM Collection
-    INNER JOIN inserted ON Collection.CollectionID = inserted.CollectionID;
+    SET ProductCount = (
+        SELECT COUNT(*)
+        FROM Product
+        WHERE CollectionID = Collection.CollectionID
+    )
+    WHERE CollectionID IN (
+        SELECT CollectionID
+        FROM inserted
+        UNION
+        SELECT CollectionID
+        FROM deleted
+    );
 END;
