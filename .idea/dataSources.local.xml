@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="DB-231.8770.3">
+  <component name="dataSourceStorageLocal" created-in="DB-231.9011.35">
     <data-source name="shop@localhost" uuid="f36316bd-aa4b-4d4c-b835-013d66cd6052">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" exact-version="0" />
-      <secret-storage>forget</secret-storage>
-      <schema-mapping />
+      <database-info product="Microsoft SQL Server" version="16.00.1000" jdbc-version="4.2" driver-name="Microsoft JDBC Driver 12.2 for SQL Server" driver-version="12.2.0.0" dbms="MSSQL" exact-version="16.0.1000" exact-driver-version="12.2">
+        <extra-name-characters>$#@</extra-name-characters>
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <auth-provider>ms-sso</auth-provider>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="database" qname="@">
+            <node kind="schema" qname="@" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
     </data-source>
   </component>
 </project>
