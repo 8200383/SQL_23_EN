@@ -42,7 +42,7 @@ CREATE TABLE [dbo].[Product]
     CollectionID  INT                NOT NULL,
     Title         VARCHAR(25)        NOT NULL,
     Description   VARCHAR(100)       NULL,
-    VariantsCount INT                NOT NULL DEFAULT O,
+    VariantsCount INT                NOT NULL DEFAULT 0,
     CONSTRAINT PK_Products_ProductID PRIMARY KEY CLUSTERED (ProductID),
     CONSTRAINT FK_Products_CollectionID FOREIGN KEY (CollectionID)
         REFERENCES Collection (CollectionID)
