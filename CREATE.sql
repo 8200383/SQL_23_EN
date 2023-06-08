@@ -42,7 +42,7 @@ CREATE TABLE [dbo].[Product]
     CollectionID  INT                NOT NULL,
     Title         VARCHAR(25)        NOT NULL,
     Description   VARCHAR(100)       NULL,
-    VariantsCount INT,
+    VariantsCount INT                NOT NULL DEFAULT O,
     CONSTRAINT PK_Products_ProductID PRIMARY KEY CLUSTERED (ProductID),
     CONSTRAINT FK_Products_CollectionID FOREIGN KEY (CollectionID)
         REFERENCES Collection (CollectionID)
@@ -59,7 +59,7 @@ CREATE TABLE [dbo].[ProductLine]
     WarehouseQuantity INT                NOT NULL DEFAULT 0,
     DefectQuantity    INT                NOT NULL DEFAULT 0,
     StandQuantity     INT                NOT NULL DEFAULT 0,
-    Stand             INT,
+    Stand             INT                NOT NULL,
     Price             DECIMAL(10, 2)     NOT NULL DEFAULT 0,
     CONSTRAINT CK_Stand CHECK (Stand BETWEEN 1 AND 10),
     CONSTRAINT CK_ProductLines_Size CHECK (Size IN ('XS', 'S', 'M', 'L', 'XL')),
