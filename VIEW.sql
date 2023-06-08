@@ -73,9 +73,11 @@ SELECT
     FROM ProductLine
     INNER JOIN Product on Product.ProductID = ProductLine.ProductID
     INNER JOIN SaleLine SL on ProductLine.ProductLineID = SL.ProductLineID
-group by ProductLine.ProductID, ProductLine.Price, ProductLine.Color, ProductLine.Size, Product.Title
+GROUP BY ProductLine.ProductID, ProductLine.Price, ProductLine.Color, ProductLine.Size, Product.Title
 ORDER BY Quantity DESC OFFSET 0 ROWS
 
+/* TODO Defect View */
+/*
 CREATE VIEW FaultyClothesAmount
 AS
 SELECT
@@ -88,6 +90,7 @@ SELECT
 FROM Report
     INNER JOIN ProductLine on ProductLine.ProductLineID = Report.ProductLineID
 GROUP by ProductLine.ProductID, Report.CreatedAt
+*/
 
 CREATE VIEW Invoice
 AS
@@ -96,8 +99,8 @@ SELECT Customer.NIF,
         Product.Title,
         ProductLine.Color,
         ProductLine.Size,
-        sum(ProductLine.ProductLineID) as Quantity,
-        sum(ProductLine.ProductLineID * ProductLine.Price) as Amount
+        SUM(ProductLine.ProductLineID) as Quantity,
+        SUM(ProductLine.ProductLineID * ProductLine.Price) as Amount
 FROM Customer
     INNER JOIN Sale ON Sale.CustomerID = Customer.CustomerID
     INNER JOIN SaleLine ON SaleLine.SaleID = Sale.SaleID
