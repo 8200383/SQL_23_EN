@@ -1,4 +1,3 @@
--- TODO DECREASE STOCK WHEN A SALE IS MADE (CREATE)
 CREATE TRIGGER DECREASE_STOCK_WHEN_SALE_MADE
 ON SaleLine
 AFTER INSERT
@@ -16,7 +15,6 @@ BEGIN
     BEGIN
         -- Raise an error or handle the restriction as per your requirements
         RAISERROR ('Quantity to be sold exceeds available quantity.', 16, 1);
-        -- Rollback the transaction if necessary
         RETURN;
     END
 
@@ -24,5 +22,19 @@ BEGIN
     SET StandQuantity = StandQuantity - @quantitySold
     WHERE ProductLineID = @productLineID;
 END;
+
+CREATE TRIGGER INCREASE_PURCHASES_COUNT_WHEN_SALE_MADE
+ON Sale
+AFTER INSERT
+AS
+BEGIN
+    UPDATE Customer
+    SET PurchasesCount = PurchasesCount + 1
+    WHERE Customer.CustomerID IN (
+        SELECT DISTINCT Orders.CustomerID
+        FROM Orders
+        INNER JOIN inserted ON Orders.OrderID = inserted.OrderID
+    );
+END;
+
 -- TODO INCREASE SALES COUNT FOR A GIVEN SELLER (SAME TRIGGER AS ABOVE)
--- TODO ADD PURCHASES COUNT FOR CUSTOMERS AND A TRIGGER FOR IT
