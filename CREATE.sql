@@ -89,7 +89,7 @@ CREATE TABLE [dbo].[Sale]
     SaleID     INT IDENTITY (1,1) NOT NULL,
     SellerID   INT                NOT NULL,
     CustomerID INT                NOT NULL,
-    CreatedAt  DATE               NOT NULL,
+    CreatedAt  DATE               NOT NULL DEFAULT GETDATE(),
     CONSTRAINT PK_Sales_SaleID PRIMARY KEY CLUSTERED (SaleID),
     CONSTRAINT FK_Sales_SellerID FOREIGN KEY (SellerID)
         REFERENCES Seller (SellerID)
