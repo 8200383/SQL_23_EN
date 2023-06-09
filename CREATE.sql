@@ -76,7 +76,7 @@ CREATE TABLE [dbo].[Seller]
     FirstName  VARCHAR(25)        NOT NULL,
     LastName   VARCHAR(25)        NOT NULL,
     NIF        VARCHAR(9)         NOT NULL UNIQUE,
-    SalesCount INT                NOT NULL,
+    SalesCount INT                NOT NULL DEFAULT 0,
     ShiftStart TIME(0)            NOT NULL DEFAULT '10:00:00',
     ShiftEnd   TIME(0)            NOT NULL DEFAULT '22:00:00',
     CONSTRAINT PK_Sellers_SellerID PRIMARY KEY CLUSTERED (SellerID),
