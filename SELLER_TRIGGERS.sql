@@ -31,9 +31,9 @@ BEGIN
     UPDATE Customer
     SET PurchasesCount = PurchasesCount + 1
     WHERE Customer.CustomerID IN (
-        SELECT DISTINCT Orders.CustomerID
-        FROM Orders
-        INNER JOIN inserted ON Orders.OrderID = inserted.OrderID
+        SELECT DISTINCT Sale.CustomerID
+        FROM Sale
+        INNER JOIN inserted ON Sale.SaleID = inserted.SaleID
     );
 END;
 
