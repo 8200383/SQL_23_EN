@@ -76,7 +76,6 @@ GROUP BY ProductLine.ProductID, ProductLine.Price, ProductLine.Color, ProductLin
 ORDER BY Quantity DESC
 OFFSET 0 ROWS
 
--- TODO See why it's output is a duplicated product for the same product line
 CREATE VIEW DefectView
 AS
 SELECT DATEPART(YEAR, Defect.CreatedAt)                    AS Year,
@@ -88,7 +87,7 @@ SELECT DATEPART(YEAR, Defect.CreatedAt)                    AS Year,
 FROM Defect
          INNER JOIN ProductLine ON ProductLine.ProductLineID = Defect.ProductLineID
          INNER JOIN Product ON Product.ProductID = ProductLine.ProductID
-GROUP BY Defect.CreatedAt, Product.Title, Product.Description;
+GROUP BY DATEPART(YEAR, Defect.CreatedAt) ,DATEPART(WEEK, Defect.CreatedAt), Product.Title, Product.Description;
 
 CREATE VIEW Invoice
 AS
