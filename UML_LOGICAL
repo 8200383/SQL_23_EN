@@ -1,0 +1,44 @@
+@startuml
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+entity Collection {
+   CollectionID <PK>
+}
+entity Customer {
+   CustomerID <PK>
+}
+entity Defect {
+   DefectID <PK>
+   SellerID <FK>
+   ProductLineID <FK>
+}
+entity Product {
+   ProductID <FK>
+}
+entity Sale {
+   SaleID <PK>
+}
+entity Seller {
+   SellerID <PK>
+}
+entity ProductLine {
+   ProductLineID <PK>
+   ProductID <FK>
+}
+entity SaleLine {
+   SaleLineID <PK>
+   SaleID <FK>
+   ProductLineID <FK>
+}
+
+Defect       }--  ProductLine : tem <
+Defect       }--  Seller      : cria <
+Product      }--  Collection  : tem <
+Sale         }--  Customer    : compra <
+Sale         }--  Seller      : cria <
+ProductLine  }--  Product     : tem <
+ProductLine  --{  SaleLine    : tem >
+SaleLine     }--  Sale        : tem <
+@enduml
