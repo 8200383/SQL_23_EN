@@ -68,7 +68,7 @@ SELECT ProductLine.ProductID,
        ProductLine.Size,
        ProductLine.Color,
        ProductLine.Price,
-       SUM(SL.Quantity) AS Quantity
+       COUNT(SL.Quantity) AS Quantity
 FROM ProductLine
          INNER JOIN Product on Product.ProductID = ProductLine.ProductID
          INNER JOIN SaleLine SL on ProductLine.ProductLineID = SL.ProductLineID
@@ -96,8 +96,8 @@ SELECT Customer.NIF,
        Product.Title,
        ProductLine.Color,
        ProductLine.Size,
-       SUM(SaleLine.Quantity)                    as Quantity,
-       SUM(SaleLine.Quantity * ProductLine.Price) as Amount
+       SUM(ProductLine.ProductLineID)                     as Quantity,
+       SUM(ProductLine.ProductLineID * ProductLine.Price) as Amount
 FROM Customer
          INNER JOIN Sale ON Sale.CustomerID = Customer.CustomerID
          INNER JOIN SaleLine ON SaleLine.SaleID = Sale.SaleID

@@ -6,5 +6,5 @@ BEGIN
     UPDATE ProductLine
     SET StandQuantity = StandQuantity - 1,
         DefectQuantity = DefectQuantity + 1
-    WHERE ProductLineID IN (SELECT ProductLineID FROM inserted)
+    WHERE ProductID IN (SELECT ProductID FROM inserted)
 END;

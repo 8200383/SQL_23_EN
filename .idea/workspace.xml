@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f681b1d-e45d-49d1-9bee-4f757618104d" name="Changes" comment="FIX why it's output is a duplicated product for the same product line">
+    <list default="true" id="2f681b1d-e45d-49d1-9bee-4f757618104d" name="Changes" comment="FIX A LOT OF SHIT">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PRODUCT_LINE_TRIGGERS.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SELLER_TRIGGERS.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DEFECT_TRIGGERS.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DEFECT_TRIGGERS.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/INSERT.sql" beforeDir="false" afterPath="$PROJECT_DIR$/INSERT.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VIEW.sql" beforeDir="false" afterPath="$PROJECT_DIR$/VIEW.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PRODUCT_TRIGGERS.sql" beforeDir="false" afterPath="$PROJECT_DIR$/PRODUCT_TRIGGERS.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +35,6 @@
     "RunOnceActivity.OpenDatabaseViewOnStart": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "database.data.extractors.current.export.id": "SQL Inserts",
     "last_opened_file_path": "C:/Users/Utilizador",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
@@ -53,13 +55,7 @@
     <MESSAGE value="Update dialects" />
     <MESSAGE value="Fix Mika trigger" />
     <MESSAGE value="FIX A LOT OF SHIT" />
-    <MESSAGE value="Add ignore" />
-    <MESSAGE value="Add TODOS" />
-    <MESSAGE value="Create a Trigger to decrease the StandQauntity when a sala is made" />
-    <MESSAGE value="ADD INCREASE_SALES_COUNT_WHEN_SALE_MADE" />
-    <MESSAGE value="Defect View created but show duplicated product for the same product line" />
-    <MESSAGE value="FIX why it's output is a duplicated product for the same product line" />
-    <option name="LAST_COMMIT_MESSAGE" value="FIX why it's output is a duplicated product for the same product line" />
+    <option name="LAST_COMMIT_MESSAGE" value="FIX A LOT OF SHIT" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
